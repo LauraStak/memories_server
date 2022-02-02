@@ -10,11 +10,11 @@ dotenv.config();
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(express.json({ limit: "50mb" }));
 
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.send("Welcome to memories API");
 });
 
-app.use(cors());
+app.use(cors({ origin: "http://localhost:3000" }));
 
 app.use("/posts", postRoute);
 
