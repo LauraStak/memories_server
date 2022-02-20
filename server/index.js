@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import postRoute from "./routes/posts.js";
+import userRoute from "./routes/users.js";
 
 const app = express();
 dotenv.config();
@@ -17,6 +18,7 @@ app.get("/", (_req, res) => {
 });
 
 app.use("/posts", postRoute);
+app.use("/user", userRoute);
 
 mongoose.connect(process.env.CONNECT_URL);
 
